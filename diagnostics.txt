@@ -1,0 +1,6 @@
+Toyota, Corolla, 2020, Airbags: 6
+Toyota, Corolla, 2020, Airbags: 6
+Tesla, Model S, 2022, Airbags: 4
+Toyota, Corolla, 2020, Airbags: 6
+Tesla, Model S, 2022, Airbags: 4
+Volvo, FH16, 2019
