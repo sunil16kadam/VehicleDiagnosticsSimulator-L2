@@ -13,9 +13,14 @@ class FileManager {
 
 public:
     FileManager(const std::string& file);
+    
     void appendToFile(const std::string& data);
     std::vector<std::string> readFromFile();
+
+    static void saveToFile(const std::string& filename, const std::vector<std::string>& data);
+    static std::vector<std::string> loadFromFile(const std::string& filename);
 };
 #endif // FILE_MANAGER_H
 
 
+ 

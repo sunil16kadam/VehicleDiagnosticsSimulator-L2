@@ -22,25 +22,30 @@ std::vector<std::string> FileManager::readFromFile() {
     return data;
 }
 
-// void FileManager::saveToFile(const std::string& filename, const std::string& data) {
-//     std::ofstream outFile(filename);
-//     if (!outFile) {
-//         std::cerr << "Error opening file for writing." << std::endl;
-//         return;
-//     }
-//     outFile << data;
-//     std::cout << "Data saved to " << filename << " successfully." << std::endl;
-// }
+void FileManager::saveToFile(const std::string& filename, const std::vector<std::string>& data) {
+    std::ofstream file(filename, std::ios::app);
+    if (!file) {
+        std::cerr << "Error opening file: " << filename << std::endl;
+        return;
+    }
+    for (const auto& line : data) {
+        file << line << std::endl;
+    }
+}
 
-// void FileManager::readFromFile(const std::string& filename) {
-//     std::ifstream inFile(filename);
-//     if (!inFile) {
-//         std::cerr << "Error opening file for reading." << std::endl;
-//         return;
-//     }
-//     std::string line;
-//     while (std::getline(inFile, line)) {
-//         std::cout << line << std::endl;
-//     }
-// }
+static std::vector<std::string> loadFromFile(const std::string& filename) {
+    std::vector<std::string> data;
+    std::ifstream file(filename);
+    if (!file) {
+        std::cerr << "Error opening file: " << filename << std::endl;
+        return data;
+    }
+    std::string line;
+    while (std::getline(file, line)) {
+        data.push_back(line);
+    }
+    return data;
+}
+
+
 

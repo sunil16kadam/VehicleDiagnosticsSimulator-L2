@@ -15,6 +15,10 @@ public:
     Truck(const Truck& other);
     Truck& operator=(const Truck& other);
 
+    std::string serialize() const override {
+            return Vehicle::serialize() + "," + std::to_string(cargoCapacity) + "," + std::to_string(axleCount);
+    }
+
     void display() const override;
     void performDiagnostics() const override;
 };

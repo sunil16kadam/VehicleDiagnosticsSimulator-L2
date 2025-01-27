@@ -17,6 +17,10 @@ public:
 
     std::string getInfo() const override;
 
+    std::string serialize() const override {
+        return Vehicle::serialize() + "," + std::to_string(airbags) + "," + (isElectric ? "Electric" : "Non-Electric");
+    }
+
     void display() const override;
     void performDiagnostics() const override;
 };

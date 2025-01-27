@@ -11,7 +11,7 @@
 #include "../Headers/file_manager.h"
 
 int main() {
-    DiagnosticsManager manager("diagnostics.txt");
+    DiagnosticsManager manager("vehicles.txt", "diagnostics.txt");
 
     // std::make_unique<Car> returns a std::unique_ptr<Car>, 
     // but since it is passed to addVehicle(), 
@@ -21,6 +21,8 @@ int main() {
     manager.addVehicle(std::make_unique<Car>(std::string("Toyota"), std::string("Corolla"), 2020, 6, false));
     manager.addVehicle(std::make_unique<Car>(std::string("Tesla"), std::string("Model S"), 2022, 4, true));
     manager.addVehicle(std::make_unique<Truck>(std::string("Volvo"), std::string("FH16"), 2019, 20.0, 4));
+
+    manager.saveVehicles();
 
     manager.performDiagnostics();
 

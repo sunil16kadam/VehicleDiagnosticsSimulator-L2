@@ -11,12 +11,18 @@
 // Class to manage multiple vehicles and diagnostics
 class DiagnosticsManager {
     std::vector<std::unique_ptr<Vehicle>> vehicles;
-    FileManager fileManager;
+
+    std::string vehiclesFile;
+    std::string diagnosticsFile;
+
+    //FileManager fileManager;
     std::string filePath;
 
 public:
     // DiagnosticsManager() = default;
     DiagnosticsManager(const std::string& file);
+    DiagnosticsManager(std::string vehiclesFile, std::string diagnosticsFile);
+
     ~DiagnosticsManager();
     DiagnosticsManager(const DiagnosticsManager& other) = delete;
     DiagnosticsManager& operator=(const DiagnosticsManager& other) = delete;
@@ -24,8 +30,7 @@ public:
     void addVehicle(std::unique_ptr<Vehicle> vehicle);
     void performDiagnostics() const;
 
-    void loadFromFile();
-    void saveToFile();
+    void saveVehicles() const;
 };
 
 #endif // DIAGNOSTICS_MANAGER_H
